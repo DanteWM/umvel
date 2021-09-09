@@ -32,3 +32,4 @@ EL microservicio de Ordenes consta de cuatro rutas ( Listar ordenes, Listar item
 
 Para el cambio de estatus en una orden, debe tomarse en cuenta el flujo y los estatus permitidos ( OPEN - COMMANDED o CANCELLED - SERVED - PAID - CLOSED ) al cambiar de estatus se debe tomar en cuenta este orden. 
 
+Los usuarios generados automaticamento son admin@umvel.com password: admin y guest@umvel.com password: guest.
