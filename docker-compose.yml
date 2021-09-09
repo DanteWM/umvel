@@ -1,0 +1,34 @@
+version: '3.7'
+
+services: 
+  gateway: 
+    image: dantewm16/umvel-gateway:v1.0.8
+    ports: 
+      - 5001:5001
+
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+    volumes: 
+        - ./mysql/init:/docker-entrypoint-initdb.d/
+        - ./data:/var/lib/mysql
+    ports: 
+      - 3306:3306
+
+  users:
+    image: dantewm16/umvelusers:v1.0.2
+    depends_on: 
+      - mariadb
+    expose:
+      - '5002'
+    ports: 
+      - 5002:5002
+
+  orders:
+    image: dantewm16/umvel-orders:v1.0.3
+    ports: 
+      - 5003:5003
+    depends_on: 
+      - mariadb

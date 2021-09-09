@@ -1,0 +1,14 @@
+{
+    "name": "default",
+    "type": "mysql",
+    "host": "mariadb",
+    "port": 3306,
+    "username": "root",
+    "password": "root",
+    "database": "orders",
+    "entities": [
+        "build/entity/*{.ts,.js}"
+    ],
+    "loggin": true,
+    "synchronize": true
+}
