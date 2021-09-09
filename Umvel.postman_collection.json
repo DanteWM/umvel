@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "7ca7245d-1964-4b82-9b80-8d93301f2103",
+		"name": "Umvel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ordenes: Listar ordenes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ikd1c3Rhdm8gTWVkaW5hIiwiZW1haWwiOiJzaXN0ZW1hcy5zaWdAaG90bWFpbC5jb20iLCJpYXQiOjE2MzExNzQ2MDMsImV4cCI6MTYzMzc2NjYwM30.1dgaqpe6HqUSwx78-62B-FvjuBX5GtzM1TPIS3yz9zM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:5001/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Items: Listar items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/orders/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"orders",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Items: Crear item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ikd1c3Rhdm8gTWVkaW5hIiwiZW1haWwiOiJzaXN0ZW1hcy5zaWdAaG90bWFpbC5jb20iLCJpYXQiOjE2MzEyMTAwNzgsImV4cCI6MTYzMzgwMjA3OH0.YMYTWNsL3e4z0jG-QQkUxms7eg5NNl1WqcNgXR-OweQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "item[name]",
+							"value": "cafe americano",
+							"type": "text"
+						},
+						{
+							"key": "item[price]",
+							"value": "30",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5001/orders/item/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"orders",
+						"item",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ordenes: Crear orden",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ikd1c3Rhdm8gTWVkaW5hIiwiZW1haWwiOiJzaXN0ZW1hcy5zaWdAaG90bWFpbC5jb20iLCJpYXQiOjE2MzExNzQ2MDMsImV4cCI6MTYzMzc2NjYwM30.1dgaqpe6HqUSwx78-62B-FvjuBX5GtzM1TPIS3yz9zM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": [\r\n        1,1,1,1\r\n    ],\r\n    \"customer_name\": \"Gustavo Medina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/orders/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"orders",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: Listar usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: Login de usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ikd1c3Rhdm8gTWVkaW5hIiwiZW1haWwiOiJzaXN0ZW1hcy5zaWdAaG90bWFpbC5jb20iLCJpYXQiOjE2MzEyMTAwNzgsImV4cCI6MTYzMzgwMjA3OH0.YMYTWNsL3e4z0jG-QQkUxms7eg5NNl1WqcNgXR-OweQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "sistemas.sig@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "lobo48tft8030",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5001/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user[name]",
+							"value": "Gustavo Medina",
+							"type": "text"
+						},
+						{
+							"key": "user[email]",
+							"value": "sistemas.sig@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "user[password]",
+							"value": "lobo48tft8030",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5001/users/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"users",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
