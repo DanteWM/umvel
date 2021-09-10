@@ -40,20 +40,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
-var rabbit_1 = __importDefault(require("../clases/rabbit"));
 var order_1 = __importDefault(require("../controladoras/order"));
 var authentication_1 = require("../middlewares/authentication");
 var ordersRoutes = (0, express_1.Router)();
 var orderService = new order_1.default;
-var rabbit = new rabbit_1.default;
-var queues = {
-    order_list: 'order_list',
-    order_create: 'order_create',
-    order_update: 'order_update',
-    item_list: 'item_list',
-    item_create: 'item_create',
-    item_update: 'item_update'
-};
 ordersRoutes.get('/', authentication_1.verifyToken, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -134,25 +124,17 @@ ordersRoutes.get('/items', authentication_1.verifyToken, function (req, res) { r
     });
 }); });
 ordersRoutes.post('/item/create', authentication_1.verifyToken, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var item, channel;
+    var item;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 item = req.body.item;
-                return [4 /*yield*/, rabbit.channel(queues.item_create)];
-            case 1:
-                channel = _a.sent();
                 return [4 /*yield*/, orderService.createItem(item, function (respuesta) { return __awaiter(void 0, void 0, void 0, function () {
                         return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4 /*yield*/, rabbit.send(channel, queues.item_create, respuesta)];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/, res.status(respuesta.codigo).json(respuesta)];
-                            }
+                            return [2 /*return*/, res.status(respuesta.codigo).json(respuesta)];
                         });
                     }); })];
-            case 2:
+            case 1:
                 _a.sent();
                 return [2 /*return*/];
         }

@@ -28,6 +28,7 @@ services:
 
   orders:
     image: dantewm16/umvel-orders:v1.0.3
+    restart: always
     ports: 
       - 5003:5003
     depends_on: 

@@ -5,21 +5,21 @@ admin:
   host: localhost
 apiEndpoints:
   api:
-    host: '*'
-    paths: '/ip'
+    host: "*"
+    paths: "/ip"
   user:
-    host: '*'
-    paths: ['/users','/users/*']
+    host: "*"
+    paths: ["/users", "/users/*"]
   order:
-    host: '*'
-    paths: ['/orders','/orders/*']
+    host: "*"
+    paths: ["/orders", "/orders/*", "/orders/items", "/orders/item/create"]
 serviceEndpoints:
   httpbin:
-    url: 'https://httpbin.org'
+    url: "https://httpbin.org"
   userService:
-    url: 'http://users:5002'
+    url: "http://users:5002"
   orderService:
-    url: 'http://orders:5003'
+    url: "http://orders:5003"
 policies:
   - basic-auth
   - cors
@@ -34,25 +34,25 @@ pipelines:
     apiEndpoints:
       - api
     policies:
-    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-    # - key-auth:
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
       - proxy:
           - action:
-              serviceEndpoint: httpbin 
+              serviceEndpoint: httpbin
               changeOrigin: true
   userPipeline:
     apiEndpoints:
       - user
     policies:
       - proxy:
-        - action:
-            serviceEndpoint: userService
-            changeOrigin: true
+          - action:
+              serviceEndpoint: userService
+              changeOrigin: true
   orderPipeline:
     apiEndpoints:
       - order
     policies:
       - proxy:
-        - action:
-            serviceEndpoint: orderService
-            changeOrigin: true        
+          - action:
+              serviceEndpoint: orderService
+              changeOrigin: true
